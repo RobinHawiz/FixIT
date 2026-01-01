@@ -13,8 +13,12 @@
   --color-secondary-a20: hsl(
     230deg 50% 10% / 0.2
   ); /* Footer wrapper top border color */
+  --color-secondary-a80: hsl(
+    230deg 50% 10% / 0.8
+  ); /* Card font color in tjänster page */
   --color-tertiary-l43: hsl(170deg 80% 43%); /* Focus header color */
   --color-accent-a70: hsl(290deg 80% 20% / 0.7); /* Header bg color */
+  --color-accent-a10: hsl(290deg 80% 20% / 0.1); /* SVG wrapper bg color */
   --color-accent-l24: hsl(290deg 80% 24%); /* Button hover color */
 
   /* Shadows */
@@ -163,6 +167,10 @@ img {
 
 .bold {
   font-weight: 700;
+}
+
+.highlight {
+  color: var(--color-accent);
 }
 
 header {
@@ -475,7 +483,77 @@ footer {
   }
 }
 
+/* Tjänster page styling */
+#tjanster-hero {
+  width: min(90rem, 100% - 4rem);
+  margin-inline: auto;
+  margin-top: 13rem;
+  margin-bottom: 8rem;
+  text-align: center;
+  h1 {
+    margin-bottom: 2.4rem;
+  }
+  p {
+    margin-bottom: 3.2rem;
+  }
+  .btn {
+    box-shadow: var(--shadow-cta-btn);
+  }
+}
+
+#tjanster {
+  width: min(166rem, 100% - 4rem);
+  margin-inline: auto;
+  margin-bottom: 8rem;
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(4, 39rem);
+    justify-content: center;
+    gap: 2.5rem;
+    width: 100%;
+  }
+  article {
+    width: 100%;
+    padding: 2.5rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 0.8rem;
+    background-color: var(--color-primary-l95);
+    outline: solid 0.2rem transparent;
+    transition: outline-color 0.2s ease-in-out;
+    &:hover {
+      outline-color: var(--color-tertiary);
+    }
+    .svg-wrapper {
+      width: 5rem;
+      height: 5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 1.2rem;
+      background-color: var(--color-accent-a10);
+    }
+    h3 {
+      margin-top: 2.2rem;
+      margin-bottom: 2.5rem;
+    }
+    p {
+      color: var(--color-secondary-a80);
+    }
+  }
+}
+
 /* Media queries */
+@media only screen and (max-width: 1650px) {
+  #tjanster {
+    .card-container {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
 @media only screen and (max-width: 1104px) {
   #hero {
     .cta {
@@ -490,8 +568,17 @@ footer {
       margin-inline: auto;
     }
   }
+  #tjanster-hero {
+    .cta {
+      padding-top: 6rem;
+    }
+  }
+  #tjanster {
+    .card-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
 }
-
 @media only screen and (max-width: 600px) {
   #hero {
     h1 {
@@ -501,8 +588,12 @@ footer {
       width: 100%;
     }
   }
+  #tjanster {
+    .card-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
 }
-
 @media only screen and (max-width: 874px) {
   footer {
     justify-content: flex-start;
