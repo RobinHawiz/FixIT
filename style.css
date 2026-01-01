@@ -461,6 +461,9 @@ footer {
     h2 {
       margin-bottom: 2rem;
     }
+    a:hover {
+      text-decoration: underline;
+    }
     .description {
       margin-bottom: 1rem;
     }
