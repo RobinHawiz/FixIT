@@ -349,9 +349,9 @@ footer {
     outline: solid 0.2rem transparent;
     border-radius: 0.8rem;
     overflow: hidden;
-    transition: outline-color 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
     &:hover {
-      outline-color: var(--color-tertiary);
+      box-shadow: var(--shadow-card-btn);
     }
   }
   .article-content-wrapper {
