@@ -534,9 +534,9 @@ footer {
     border-radius: 0.8rem;
     background-color: var(--color-primary-l95);
     outline: solid 0.2rem transparent;
-    transition: outline-color 0.2s ease-in-out;
+    transition: box-shadow 0.2s ease-in-out;
     &:hover {
-      outline-color: var(--color-tertiary);
+      box-shadow: var(--shadow-card-btn);
     }
     .svg-wrapper {
       width: 5rem;
