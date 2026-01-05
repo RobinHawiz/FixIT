@@ -21,7 +21,7 @@
       </a>
       <nav>
         <ul>
-          <?php wp_nav_menu(array('theme_location' => 'main-nav')); ?>
+          <?php wp_nav_menu(array('theme_location' => 'main-nav', 'container' => false, 'items_wrap' => '%3$s')); ?>
           <li><a class="btn" href="<?= get_home_url(); ?>/#contact">Boka support</a></li>
         </ul>
       </nav>
