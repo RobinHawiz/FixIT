@@ -116,7 +116,7 @@ button[type="submit"]:focus-visible {
 input:focus-visible,
 textarea:focus-visible {
   outline: solid 0.2rem var(--color-tertiary) !important;
-  outline-offset: 0rem;
+  outline-offset: -0.1rem;
 }
 
 header a:focus-visible {
@@ -176,6 +176,11 @@ img {
 
 .highlight {
   color: var(--color-accent);
+}
+
+.wpcf7-response-output {
+  margin: 0 !important;
+  font-size: var(--font-p);
 }
 
 header {
@@ -328,12 +333,23 @@ footer {
   display: flex;
   flex-direction: column;
   .news-title {
+    margin-bottom: 5rem;
     text-align: center;
     h2 {
       margin-bottom: 1rem;
     }
+  }
+  #homepage-teaser {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    background-color: var(--color-primary-l95);
+    border-radius: 0.8rem;
+    h2 {
+      margin-bottom: 2rem;
+    }
     p {
-      margin-bottom: 5rem;
+      font-size: var(--font-subheading);
+      margin-bottom: 0;
     }
   }
   .news-container {
@@ -341,7 +357,7 @@ footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(30rem, 40rem));
     justify-content: center;
-    gap: 3rem;
+    gap: 5rem;
   }
   article {
     justify-self: center;
@@ -355,7 +371,7 @@ footer {
     }
   }
   .article-content-wrapper {
-    height: 40rem;
+    min-height: 40rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -390,7 +406,7 @@ footer {
   width: min(130rem, calc(100% - 4rem));
   margin-inline: auto;
   margin-bottom: 8rem;
-  padding-top: 8rem;
+  padding-top: 10rem;
   display: flex;
   flex-direction: column;
   .contact-title {
@@ -424,7 +440,9 @@ footer {
       gap: 0.5rem;
     }
     .btn {
-      align-self: self-start;
+      width: min-content;
+      border: none !important;
+      border-radius: 10rem;
       box-shadow: var(--shadow-card-btn);
     }
     input,
@@ -451,7 +469,7 @@ footer {
 #om-oss-contact {
   width: min(130rem, 90%);
   margin-inline: auto;
-  article {
+  .article > * {
     margin-bottom: 8rem;
     display: flex;
     align-items: center;
@@ -460,6 +478,7 @@ footer {
     gap: 5rem 10rem;
     img {
       width: min(40rem, 100%);
+      height: 100%;
     }
     .content {
       max-width: 80rem;
@@ -516,15 +535,16 @@ footer {
   width: min(166rem, 100% - 4rem);
   margin-inline: auto;
   margin-bottom: 8rem;
-  .card-container {
+  & > * {
     display: grid;
     grid-template-columns: repeat(4, 39rem);
     justify-content: center;
     gap: 2.5rem;
     width: 100%;
   }
-  article {
+  article > * {
     width: 100%;
+    height: 100%;
     padding: 2.5rem 3rem;
     display: flex;
     flex-direction: column;
@@ -557,12 +577,52 @@ footer {
   }
 }
 
+/* Post page styling */
+#post {
+  width: min(90rem, calc(100% - 4rem));
+  margin-inline: auto;
+  margin-block: 8rem;
+  display: flex;
+  flex-direction: column;
+  h1 {
+    font-weight: 400;
+    margin-bottom: 2rem;
+    hyphens: auto;
+  }
+  img {
+    width: 100%;
+    height: 100%;
+    max-height: 40rem;
+    margin-bottom: 4rem;
+    border-radius: 1.6rem;
+    object-fit: cover;
+  }
+}
+
+/* Template page styling */
+#template-page-text-only {
+  width: 80%;
+  max-width: 89rem;
+  margin-block: 8rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin-bottom: 2.4rem;
+  }
+  h2 {
+    margin-bottom: 1rem;
+  }
+  h3 {
+    margin-bottom: 1.5rem;
+  }
+}
+
 /* Media queries */
 @media only screen and (max-width: 1650px) {
-  #tjanster {
-    .card-container {
-      grid-template-columns: repeat(4, 1fr);
-    }
+  #tjanster > * {
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 @media only screen and (max-width: 1104px) {
@@ -579,15 +639,9 @@ footer {
       margin-inline: auto;
     }
   }
-  #tjanster-hero {
-    .cta {
-      padding-top: 6rem;
-    }
-  }
-  #tjanster {
-    .card-container {
-      grid-template-columns: repeat(2, 1fr);
-    }
+
+  #tjanster > * {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @media only screen and (max-width: 600px) {
@@ -599,10 +653,8 @@ footer {
       width: 100%;
     }
   }
-  #tjanster {
-    .card-container {
-      grid-template-columns: repeat(1, 1fr);
-    }
+  #tjanster > * {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
 @media only screen and (max-width: 874px) {
@@ -634,13 +686,23 @@ footer {
       gap: 1.5rem;
     }
   }
+  #news {
+    .btn {
+      margin-top: 2rem;
+    }
+  }
   #om-oss-contact {
-    article {
+    .article > * {
       .content {
         max-width: 80rem;
         min-width: 20rem;
         flex: 1;
       }
+    }
+  }
+  #post {
+    h1 {
+      --font-h1: 3rem;
     }
   }
   footer {
