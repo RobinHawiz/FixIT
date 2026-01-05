@@ -9,18 +9,6 @@
       href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700&display=swap"
       rel="stylesheet"
     />
-    <link
-      rel="icon"
-      href="<?= get_template_directory_uri(); ?>/images/favicon-dark.png"
-      type="image/png"
-      media="(prefers-color-scheme: light)"
-    />
-    <link
-      rel="icon"
-      href="<?= get_template_directory_uri(); ?>/images/favicon-light.png"
-      type="image/png"
-      media="(prefers-color-scheme: dark)"
-    />
     <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/style.css" />
     <title><?php bloginfo('name'); ?></title>
     <?php wp_head(); ?>
